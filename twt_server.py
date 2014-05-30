@@ -57,7 +57,7 @@ class CustomStreamListener(tweepy.StreamListener):
 
 	def on_error(self, status_code):
 		print >> sys.stderr, 'Encountered error with status code:', status_code
-		return False # Don't kill the stream
+		return True # Don't kill the stream
 
 	def on_timeout(self):
 		print >> sys.stderr, 'Timeout...'

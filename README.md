@@ -19,7 +19,7 @@ python twt_server.py
 
 REST Endpoints:
 
-Start Streaming:
+Start Streaming: 
 ```
 curl http://localhost:5000/start_streaming/<stream/client_id> -d "terms=<fire,water>" -X POST
 ```
