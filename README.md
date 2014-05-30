@@ -1,7 +1,7 @@
 Tweet_stream
 ============
 
-Twitter Streaming API Flask Server. A REST API server for Twitter spitzer hose streaming. 
+Twitter Streaming API Flask Server. A REST API server for Twitter spitzer hose streaming. Data storage is handled by MongoDB, the data is inserted into the collection specified by stream/client id.
 
 
 ## Requirements
