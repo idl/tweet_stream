@@ -71,9 +71,7 @@ def streaming_twitter(client_id, terms, access, bot_id, update):
 				auth = tweepy.OAuthHandler(access['consumer_key'], access['consumer_secret'])
 				auth.set_access_token(access['access_key'], access['access_secret'])
 				api = tweepy.API(auth)
-
 				sapi = tweepy.streaming.Stream(auth, CustomStreamListener(collection=client_id))
-
 				stream = sapi.filter(track=terms, async=True)
 
 				if update == True and sapi.running is True:
@@ -119,8 +117,6 @@ class start_streaming(Resource):
 		track_terms = request.form['terms']
 		track_terms = track_terms.split(',')
 
-		print track_terms
-
 		if client_id in conn_client:
 			abort(400, message="Stream for client {} already up. Use update to change terms.".format(client_id))
 		else:
@@ -140,7 +136,6 @@ class update_streaming(Resource):
 	def post(self,client_id):
 		track_terms = request.form['terms']
 		track_terms = track_terms.split(',')
-
 		abort_if_client_conn_doesnt_exist(client_id)
 		
 		if 'bot_id' in conn_client[client_id]:
@@ -149,7 +144,6 @@ class update_streaming(Resource):
 			bot_id, access = get_access_bots()
 
 		pool.apply_async(streaming_twitter, args = (client_id,track_terms,access, bot_id, True))
-
 		return "Client Updated", 200
 
 api.add_resource(start_streaming, '/start_streaming/<string:client_id>')
