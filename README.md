@@ -8,7 +8,8 @@ Twitter Streaming API Flask Server. A REST API server for Twitter spitzer hose s
 1. Tweepy
 2. Multiprocessing
 3. Flask
-4. MongoDB (For storage)
+4. Flask-restful
+5. MongoDB (For storage)
 
 ## Utilization
 
